@@ -1,13 +1,13 @@
 #include "CatsabiMultiplication.h"
+#include "math.h"
+#include <string>
+using namespace std;
+void CatsabiMultiplication::NumberExtension(string &FirstNumber, string &SecondNumber) {
+	int MaxLenght = FirstNumber.length() > SecondNumber.length() ? FirstNumber.length() : SecondNumber.length();
+	string &temp = FirstNumber.length() > SecondNumber.length() ? SecondNumber : FirstNumber;
+	for (int i = temp.length(); i < MaxLenght; i++) {
 
-
-CatsabiMultiplication::CatsabiMultiplication(std::string* firstNumber, std::string* secondNumber) {
-	this->firstNumber = firstNumber;
-	this->secondNumber = secondNumber;
-
-}
-void CatsabiMultiplication::findSeparetor() {
-	if (firstNumber->length == secondNumber->length) {
-		separetor = int(firstNumber->length / 2);
+		temp = "0" + temp;
 	}
+
 }

@@ -1,12 +1,14 @@
 #pragma once
 #include <string>
+#include "LongNumber.h"
 
 class CatsabiMultiplication {
 private:
-	std::string* firstNumber;
-	std::string* secondNumber;
-	int separetor;
+	LongNumber a, b, c, d;
+	
 public:
-	CatsabiMultiplication(std::string* firstNumber, std::string* secondNumber);
-	void findSeparetor();
+	void NumberExtension(std::string &FirstNumber, std::string &SecondNumber);
+	LongNumber Multiplication();
+	void DivedeIntoTwoParts();
+	
 };
