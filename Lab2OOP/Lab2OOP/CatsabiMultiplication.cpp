@@ -11,3 +11,12 @@ void CatsabiMultiplication::NumberExtension(string &FirstNumber, string &SecondN
 	}
 
 }
+void CatsabiMultiplication::DivedeIntoTwoParts(string &FirstNumber, string &SecondNumber) {
+	NumberExtension(FirstNumber, SecondNumber);
+	int separotor = int(FirstNumber.length() / 2);
+	basis = pow(10, separotor);
+	a.SetNewNumber(FirstNumber.substr(0, separotor));
+	b.SetNewNumber(FirstNumber.substr(separotor, FirstNumber.length() -1));
+	c.SetNewNumber(SecondNumber.substr(0, separotor ));
+	d.SetNewNumber(SecondNumber.substr(separotor, SecondNumber.length() - 1));
+}
