@@ -1,14 +1,16 @@
 #pragma once
 #include <string>
 #include "LongNumber.h"
+#include <vector>
 
 class CatsabiMultiplication {
 private:
-	
-	int basis = 0;
+
+
 public:
 	void NumberExtension(std::string &FirstNumber, std::string &SecondNumber);
-	LongNumber Multiplication();
-	void DivedeIntoTwoParts(std::string &FirstNumber, std::string &SecondNumber);
-	LongNumber a, b, c, d;
+
+	std::vector<LongNumber> DivedeIntoTwoParts(std::string &FirstNumber, std::string &SecondNumber);
+
+	LongNumber* Multiplication(LongNumber FirstNumber, LongNumber SecondNumber);
 };

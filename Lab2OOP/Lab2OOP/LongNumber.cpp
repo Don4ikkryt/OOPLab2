@@ -55,3 +55,108 @@ LongNumber::LongNumber()
 {
 	longNumber = "0";
 }
+LongNumber LongNumber::operator-(LongNumber other) {
+	string FirstNumber = this->GetNumber();
+	string SecondNumber = other.GetNumber();
+	int MaxLenght;
+	if (FirstNumber.length() > SecondNumber.length()) {
+	    MaxLenght = FirstNumber.length();
+		SecondNumber = this->ExtenceLenght(MaxLenght, SecondNumber);
+	}
+	else {
+		MaxLenght = SecondNumber.length();
+		FirstNumber = this->ExtenceLenght(MaxLenght, FirstNumber);
+	}
+	int flag = 0;
+	string temp1, temp2;
+	int temp11, temp22;
+	for (int i = 0; i < MaxLenght; i++) {
+		temp1 = FirstNumber[i];
+		temp2 = SecondNumber[i];
+		temp11 = stoi(temp1);
+		temp22 = stoi(temp2);
+		if (temp11 != temp22)
+		{
+			if (temp11 > temp22)
+			{
+				flag = 1;
+				break;
+			}
+			else
+			{
+				flag = 2;
+				break;
+			}
+		}
+
+	}
+	LongNumber Returning;
+	string NewNumber;
+	switch (flag)
+	{
+	case 0 :
+		Returning.SetNewNumber("0");
+		return Returning;
+	case 1 :
+		NewNumber = Differnce(FirstNumber, SecondNumber);
+		Returning.SetNewNumber(NewNumber);
+		return Returning;
+	case 2:
+		NewNumber = Differnce(SecondNumber, FirstNumber);
+		NewNumber = "-" + NewNumber;
+		Returning.SetNewNumber(NewNumber);
+		return Returning;
+	default:
+		break;
+	}
+}
+string LongNumber::Differnce(string BiggerNumber, string LessNumber) {
+	string temp1, temp2;
+	int temp11, temp22;
+	string NewNumber = "";
+	int NewDigit;
+	for (int i = BiggerNumber.length()-1; i >= 0; i--) {
+		temp1 = BiggerNumber[i];
+		temp2 = LessNumber[i];
+		temp11 = stoi(temp1);
+		temp22 = stoi(temp2);
+		if (temp11 == temp22) {
+			NewDigit = 0;
+			
+		}
+		if (temp11 > temp22) {
+			NewDigit = temp11 - temp22;
+			
+		}
+		if (temp11 < temp22)
+		{
+			int  tempNextDigit;
+			string  NewNextDigit;
+			NewDigit = temp11 + 10 - temp22;
+			int iter = 0;
+				NewNextDigit = BiggerNumber[i];
+				tempNextDigit = stoi(NewNextDigit);
+				if (tempNextDigit == 0) {
+					
+					while (tempNextDigit == 0) {
+						BiggerNumber.erase(i - iter, 1);
+						BiggerNumber.insert(i - iter, "9");
+						iter++;
+						NewNextDigit = BiggerNumber[i - iter];
+						tempNextDigit = stoi(NewNextDigit);
+						
+					}
+					tempNextDigit = tempNextDigit - 1;
+					BiggerNumber.erase(i - iter, 1);
+					BiggerNumber.insert(i - iter, to_string(tempNextDigit));
+				}
+				else {
+					tempNextDigit = tempNextDigit - 1;
+					BiggerNumber.erase(i - iter - 1, 1);
+					BiggerNumber.insert(i - iter - 1, to_string(tempNextDigit));
+				}
+		}
+		NewNumber = to_string(NewDigit) + NewNumber;
+	}
+	return NewNumber;
+}
