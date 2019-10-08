@@ -107,7 +107,7 @@ LongNumber LongNumber::operator-(LongNumber other) {
 		Returning.SetNewNumber(NewNumber);
 		return Returning;
 	default:
-		break;
+		return Returning;
 	}
 }
 string LongNumber::Differnce(string BiggerNumber, string LessNumber) {
@@ -134,7 +134,7 @@ string LongNumber::Differnce(string BiggerNumber, string LessNumber) {
 			string  NewNextDigit;
 			NewDigit = temp11 + 10 - temp22;
 			int iter = 0;
-				NewNextDigit = BiggerNumber[i];
+				NewNextDigit = BiggerNumber[i-1];
 				tempNextDigit = stoi(NewNextDigit);
 				if (tempNextDigit == 0) {
 					
@@ -159,4 +159,18 @@ string LongNumber::Differnce(string BiggerNumber, string LessNumber) {
 		NewNumber = to_string(NewDigit) + NewNumber;
 	}
 	return NewNumber;
+}
+LongNumber LongNumber::operator*(LongNumber other) {
+	if (this->GetNumber().length() < 5 && other.GetNumber().length()< 5) {
+		string FirstNumber = this->GetNumber();
+		string SecondNumber = other.GetNumber();
+		int Num1 = stoi(FirstNumber);
+		int Num2 = stoi(SecondNumber);
+		int Subtraction = Num1 * Num2;
+		return LongNumber(to_string(Subtraction));
+	}
+	else
+	{
+		return LongNumber();
+	}
 }

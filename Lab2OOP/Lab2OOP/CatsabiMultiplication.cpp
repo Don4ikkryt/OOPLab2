@@ -27,19 +27,31 @@ vector<LongNumber> CatsabiMultiplication::DivedeIntoTwoParts(string &FirstNumber
 	DivededParts[3].SetNewNumber(SecondNumber.substr(separotor, SecondNumber.length() - 1));
 	return DivededParts;
 }
-//LongNumber* CatsabiMultiplication::Multiplication(LongNumber FirstNumber, LongNumber SecondNumber) {
-//	string Number1 = FirstNumber.GetNumber(), Number2 = SecondNumber.GetNumber();
-//	while (Number1.length() > 4)
-//	{
-//		vector<LongNumber> DivededParts = { DivedeIntoTwoParts(Number1, Number2) };
-//		LongNumber sum1 = DivededParts[0] + DivededParts[1];
-//		LongNumber sum2 = DivededParts[2] + DivededParts[3];
-//		LongNumber* temp1 = Multiplication(DivededParts[0], DivededParts[3]);
-//		LongNumber* temp2 = Multiplication(DivededParts[1], DivededParts[4]);
-//		LongNumber* temp3 = Multiplication(sum1, sum2);
-//
-//	}
-//	
-//	
-//
-//}
+LongNumber CatsabiMultiplication::Multiplication(LongNumber FirstNumber, LongNumber SecondNumber) {
+	string Number1 = FirstNumber.GetNumber(), Number2 = SecondNumber.GetNumber();
+	if (Number1.length() <= 4 && Number2.length()<=4) {
+		return FirstNumber * SecondNumber;
+	}
+	vector<LongNumber> DivededParts = { DivedeIntoTwoParts(Number1, Number2) };
+	LongNumber a = Multiplication(DivededParts[0], DivededParts[2]);
+	LongNumber c = Multiplication(DivededParts[1], DivededParts[3]);
+	LongNumber sum1 = DivededParts[0] + DivededParts[1];
+	LongNumber sum2 = DivededParts[2] + DivededParts[3];
+	LongNumber b = Multiplication(sum1, sum2) - a - c;
+	a = AddZero(a, 2*DivededParts[1].GetNumber().length());
+	b = AddZero(b, DivededParts[3].GetNumber().length());
+
+	return a + b + c;
+}
+LongNumber CatsabiMultiplication::AddZero(LongNumber Number, int AmountOfZeroes) {
+	if (AmountOfZeroes <= 0) {
+		return Number;
+	}
+	else{
+		string temp = Number.GetNumber();
+		for (int i = 0; i < AmountOfZeroes; i++) {
+			temp += "0";
+		}
+		return LongNumber(temp);
+	}
+}

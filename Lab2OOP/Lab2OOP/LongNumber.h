@@ -14,4 +14,6 @@ public:
 	std::string GetNumber();
 	LongNumber operator +(LongNumber other);
 	LongNumber operator -(LongNumber other);
+	LongNumber operator *(LongNumber other);
+
 };
