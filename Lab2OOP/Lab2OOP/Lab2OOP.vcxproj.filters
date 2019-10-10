@@ -24,12 +24,24 @@
     <ClCompile Include="CatsabiMultiplication.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Furie.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Schonhage–Strassen.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="LongNumber.h">
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="CatsabiMultiplication.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Furie.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Schonhage–Strassen.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>

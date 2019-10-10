@@ -116,12 +116,16 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="CatsabiMultiplication.cpp" />
+    <ClCompile Include="Furie.cpp" />
     <ClCompile Include="LongNumber.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Schonhage–Strassen.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CatsabiMultiplication.h" />
+    <ClInclude Include="Furie.h" />
     <ClInclude Include="LongNumber.h" />
+    <ClInclude Include="Schonhage–Strassen.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

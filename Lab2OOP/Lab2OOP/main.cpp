@@ -2,6 +2,7 @@
 #include <string>
 #include <iostream>
 #include "CatsabiMultiplication.h"
+#include "Schonhage–Strassen.h"
 
 
 using namespace std;
@@ -16,7 +17,11 @@ int main() {
 	LongNumber num4("345675345345");
 	CatsabiMultiplication catsubimult;
 	LongNumber num5 = catsubimult.Multiplication(num1, num4);
-	cout << num5.GetNumber();
+
+	cout << num5.GetNumber() << endl;
+	SchonhageStrassen ss;
+	LongNumber num6 = ss.Multiplication(num1, num4);
+	cout << num6.GetNumber();
 	system("pause");
 	return 0;
 }

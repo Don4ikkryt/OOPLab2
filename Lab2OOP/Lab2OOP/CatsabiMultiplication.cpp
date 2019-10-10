@@ -1,5 +1,5 @@
 #include "CatsabiMultiplication.h"
-#include "math.h"
+#include <cmath>
 #include <string>
 using namespace std;
 void CatsabiMultiplication::NumberExtension(string &FirstNumber, string &SecondNumber) {
